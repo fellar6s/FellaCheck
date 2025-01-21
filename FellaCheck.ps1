@@ -254,57 +254,29 @@ function Log-WindowsSecurityStatus {
     Add-Content -Path $outputFile -Value $securityHeader
     $antivirusProducts = Get-WmiObject -Namespace "root\SecurityCenter2" -Class AntiVirusProduct -ErrorAction SilentlyContinue | Where-Object { $_.displayName -ne "Windows Defender" }
 
-    if ($antivirusProducts)
-        Add-Content -Path $outputFile -Value "Third-Party Antivirus Software Detected:"
-        foreach ($product in $antivirusProducts) {
-            Add-Content -Path $outputFile -Value ("Name: {0}, State: {1}" -f $product.displayName, $product.productState)
-        }
-        Write-Host "Third-party antivirus software in $logFileName" -ForegroundColor Green
-    } else {
-        Write-Host "No third-party antivirus software found. Logging Windows Defender status..." -ForegroundColor Yellow
-        try {
-            $securityStatus = Get-MpComputerStatus
-            Add-Content -Path $outputFile -Value ("Antivirus Enabled: {0}" -f (if ($securityStatus.AntivirusEnabled) { "Enabled" } else { "Disabled" }))
-            Add-Content -Path $outputFile -Value ("Real-Time Protection Enabled: {0}" -f (if ($securityStatus.RealTimeProtectionEnabled) { "Enabled" } else { "Disabled" }))
-            Add-Content -Path $outputFile -Value ("Firewall Enabled: {0}" -f (if ($securityStatus.FirewallEnabled) { "Enabled" } else { "Disabled" }))
-            Add-Content -Path $outputFile -Value ("Antispyware Enabled: {0}" -f (if ($securityStatus.AntispywareEnabled) { "Enabled" } else { "Disabled" }))
-            Add-Content -Path $outputFile -Value ("AMService Enabled: {0}" -f (if ($securityStatus.AMServiceEnabled) { "Enabled" } else { "Disabled" }))
-            Add-Content -Path $outputFile -Value ("Quick Scan Age (Days): {0}" -f $securityStatus.QuickScanAge)
-            Add-Content -Path $outputFile -Value ("Full Scan Age (Days): {0}" -f $securityStatus.FullScanAge)
-
-            Write-Host "Windows Defender status logged in $logFileName" -ForegroundColor Green
-        } catch {
-            Write-Host "Failed to retrieve Windows Defender status via Get-MpComputerStatus. Checking alternative method..." -ForegroundColor Yellow
-            Add-Content -Path $outputFile -Value "Failed to retrieve Windows Defender status via primary method."
-            $defenderService = Get-WmiObject -Namespace "root\Microsoft\Windows\Defender" -Class MSFT_MpPreference -ErrorAction SilentlyContinue
-            if ($defenderService) {
-                $realtimeProtectionStatus = if ($defenderService.DisableRealtimeMonitoring -eq $false) { "Enabled" } else { "Disabled" }
-                $cloudProtectionStatus = if ($defenderService.DisableIOAVProtection -eq $false) { "Enabled" } else { "Disabled" }
-                $puaProtectionStatus = if ($defenderService.PUAProtection -eq 1) { "Enabled" } else { "Disabled" }
-                $submissionConsent = switch ($defenderService.SubmissionConsent) {
-                    0 { "Prompt before sending samples" }
-                    1 { "Never send samples" }
-                    2 { "Send safe samples automatically, prompt for sensitive ones" }
-                    3 { "Always send all samples automatically" }
-                    default { "Unknown" }
-                }
-
-                $scanAvgCpuLoadFactor = $defenderService.ScanAvgCPULoadFactor
-                $signatureUpdateInterval = $defenderService.SignatureUpdateInterval
-
-                Add-Content -Path $outputFile -Value ("Windows Defender Antivirus: {0}" -f $realtimeProtectionStatus)
-                Add-Content -Path $outputFile -Value ("Cloud Protection: {0}" -f $cloudProtectionStatus)
-                Add-Content -Path $outputFile -Value ("PUA Protection: {0}" -f $puaProtectionStatus)
-                Add-Content -Path $outputFile -Value ("Sample Submission Consent: {0}" -f $submissionConsent)
-                Add-Content -Path $outputFile -Value ("Scan Average CPU Load Factor: {0}" -f $scanAvgCpuLoadFactor)
-                Add-Content -Path $outputFile -Value ("Signature Update Interval (Hours): {0}" -f $signatureUpdateInterval)
-
-                Write-Host "Additional Windows Defender settings logged in $logFileName" -ForegroundColor Green
-            } else {
-                Write-Host "Failed to retrieve Windows Defender status from both methods." -ForegroundColor Red
-                Add-Content -Path $outputFile -Value "Unable to retrieve Windows Defender status using available methods."
-            }
-        }
+if ($antivirusProducts) {
+    Add-Content -Path $outputFile -Value "Third-Party Antivirus Software Detected:"
+    foreach ($product in $antivirusProducts) {
+        Add-Content -Path $outputFile -Value ("Name: {0}, State: {1}" -f $product.displayName, $product.productState)
+    }
+    Write-Host "Third-party antivirus software in $logFileName" -ForegroundColor Green
+} else {
+    Write-Host "No third-party antivirus software found. Logging Windows Defender status..." -ForegroundColor Yellow
+    try {
+        $securityStatus = Get-MpComputerStatus
+        Add-Content -Path $outputFile -Value ("Antivirus Enabled: {0}" -f (if ($securityStatus.AntivirusEnabled) { "Enabled" } else { "Disabled" }))
+        Add-Content -Path $outputFile -Value ("Real-Time Protection Enabled: {0}" -f (if ($securityStatus.RealTimeProtectionEnabled) { "Enabled" } else { "Disabled" }))
+        Add-Content -Path $outputFile -Value ("Firewall Enabled: {0}" -f (if ($securityStatus.FirewallEnabled) { "Enabled" } else { "Disabled" }))
+        Add-Content -Path $outputFile -Value ("Antispyware Enabled: {0}" -f (if ($securityStatus.AntispywareEnabled) { "Enabled" } else { "Disabled" }))
+        Add-Content -Path $outputFile -Value ("AMService Enabled: {0}" -f (if ($securityStatus.AMServiceEnabled) { "Enabled" } else { "Disabled" }))
+        Add-Content -Path $outputFile -Value ("Quick Scan Age (Days): {0}" -f $securityStatus.QuickScanAge)
+        Add-Content -Path $outputFile -Value ("Full Scan Age (Days): {0}" -f $securityStatus.FullScanAge)
+        Write-Host "Windows Defender status logged in $logFileName" -ForegroundColor Green
+    } catch {
+        Write-Host "Failed to retrieve Windows Defender status via Get-MpComputerStatus." -ForegroundColor Red
+        Add-Content -Path $outputFile -Value "Error: Unable to retrieve Windows Defender status."
+    }
+}
     }
 }
 
