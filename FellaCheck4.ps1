@@ -296,7 +296,12 @@ function Log-WindowsSecurityStatus {
     } else {
         Write-Host "No third-party antivirus software found. Logging Windows Defender status..." -ForegroundColor Yellow
         try {
-            $securityStatus = Get-MpComputerStatus
+try {
+    $SecurityStatus = Get-MpComputerStatus
+} catch {
+    Write-Warning 'Failed to retrieve Windows Defender status via Get-MpComputerStatus.'
+    $SecurityStatus = $null
+}
             Add-Content -Path $outputFile -Value ("Antivirus Enabled: {0}" -f (if ($securityStatus.AntivirusEnabled) { "Enabled" } else { "Disabled" }))
             Add-Content -Path $outputFile -Value ("Real-Time Protection Enabled: {0}" -f (if ($securityStatus.RealTimeProtectionEnabled) { "Enabled" } else { "Disabled" }))
             Add-Content -Path $outputFile -Value ("Firewall Enabled: {0}" -f (if ($securityStatus.FirewallEnabled) { "Enabled" } else { "Disabled" }))
