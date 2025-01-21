@@ -310,7 +310,6 @@ if ($antivirusProducts) {
             }
         }
     }
-}
 
 function Log-ProtectionHistory {
     Write-Host "Checking Protection History for recent threats..." -ForegroundColor DarkYellow
