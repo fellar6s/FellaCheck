@@ -415,12 +415,6 @@ if (Test-Path $logFilePath) {
     Set-Clipboard -Path $logFilePath
     Write-Host "Log file copied to clipboard." -ForegroundColor DarkRed
 } else {
-    Write-Host "Log file not found on the desktop." -ForegroundColor Red
-}
-
-$desktopPath = [System.Environment]::GetFolderPath('Desktop')
-$userProfile = [System.Environment]::GetFolderPath([System.Environment+SpecialFolder]::UserProfile)
-$downloadsPath = Join-Path -Path $userProfile -ChildPath "Downloads"
 
 function Delete-FileIfExists {
     param (
@@ -431,8 +425,10 @@ function Delete-FileIfExists {
     }
 }
 
-$targetFileDesktop = Join-Path -Path $desktopPath -ChildPath "PcCheck.txt"
-$targetFileDownloads = Join-Path -Path $downloadsPath -ChildPath "PcCheck.txt"
+$targetFileDesktop = Join-Path -Path $desktopPath -ChildPath 'PcCheck.txt'
+$targetFileDownloads = Join-Path -Path $downloadsPath -ChildPath 'PcCheck.txt'
 
 Delete-FileIfExists -filePath $targetFileDesktop
 Delete-FileIfExists -filePath $targetFileDownloads
+
+Write-Host 'FellaCheck script completed successfully.' -ForegroundColor Green
