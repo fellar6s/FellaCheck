@@ -437,3 +437,25 @@ $targetFileDownloads = Join-Path -Path $downloadsPath -ChildPath "PcCheck.txt"
 
 Delete-FileIfExists -filePath $targetFileDesktop
 Delete-FileIfExists -filePath $targetFileDownloads
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
