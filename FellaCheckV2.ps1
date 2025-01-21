@@ -261,7 +261,7 @@ if ($antivirusProducts) {
     # Add appropriate handling logic here
         Add-Content -Path $outputFile -Value "Third-Party Antivirus Software Detected:"
         foreach ($product in $antivirusProducts) {
-            Add-Content -Path $outputFile -Value ("Name: {0}, State: {1}" -f $product.displayName, $product.productState)
+}
         }
         Write-Host "Third-party antivirus software in $logFileName" -ForegroundColor Green
     } else {
