@@ -1,11 +1,11 @@
 Clear-Host
 
-$headerBase64 = "RkZGRkZGRkZGRkZGRkZGRkZGRkZGRiAgICAgICAgICAgQ0NDQ0NDQ0NDQ0NDQ0VFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRQpGOjo6Ojo6Ojo6Ojo6Ojo6Ojo6OjpGICAgICAgICBDQ0M6Ojo6Ojo6Ojo6OjpDRTo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6RQpGOjo6Ojo6Ojo6Ojo6Ojo6Ojo6OjpGICAgICAgQ0M6Ojo6Ojo6Ojo6Ojo6OjpDRTo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6RQpGRjo6Ojo6OkZGRkZGRkZGRjo6OjpGICAgICBDOjo6OjpDQ0NDQ0NDQzo6OjpDRUU6Ojo6OjpFRUVFRUVFRUVFRUU6Ojo6RQogIEY6Ojo6OkYgICAgICAgRkZGRkZGICAgIEM6Ojo6OkMgICAgICAgQ0NDQ0NDICBFOjo6OjpFICAgICAgIEVFRUVFRQogIEY6Ojo6OkYgICAgICAgICAgICAgICAgQzo6Ojo6QyAgICAgICAgICAgICAgICBFOjo6OjpFICAgICAgICAgICAgIAogIEY6Ojo6OjpGRkZGRkZGRkZGICAgICBDOjo6OjpDICAgICAgICAgICAgICAgIEVFOjo6Ojo6RUVFRUVFRUVFRSAgIAogIEY6Ojo6Ojo6Ojo6Ojo6OjpGICAgICBDOjo6OjpDICAgICAgICAgICAgICAgICAgRTo6Ojo6Ojo6Ojo6Ojo6OkUgICAKICBGOjo6Ojo6Ojo6Ojo6Ojo6RiAgICAgQzo6Ojo6QyAgICAgICAgICAgICAgICAgIEU6Ojo6Ojo6Ojo6Ojo6OjpFICAgCiAgRjo6Ojo6OkZGRkZGRkZGRkYgICAgIEM6Ojo6OkMgICAgICAgICAgICAgICAgRUU6Ojo6OjpFRUVFRUVFRUVFICAgCiAgRjo6Ojo6RiAgICAgICAgICAgICAgICBDOjo6OjpDICAgICAgICAgICAgICAg IEU6Ojo6OkUgICAgICAgICAgICAgCiAgRjo6Ojo6RiAgICAgICBGRkZGRkYgICAgQzo6Ojo6QyAgICAgICBDQ0NDQ0MgIEU6Ojo6OkUgICAgICAgRUVFRUVFCkZGOjo6Ojo6OkZGRkZGRkZGRjo6OjpGICAgICBDOjo6OjpDQ0NDQ0NDQzo6OjpDRUU6Ojo6OjpFRUVFRUVFRTo6Ojo6RQpGOjo6Ojo6Ojo6Ojo6Ojo6Ojo6OjpGICAgICAgQ0M6Ojo6Ojo6Ojo6Ojo6OjpDRTo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6RQpGOjo6Ojo6Ojo6Ojo6Ojo6Ojo6OjpGICAgICAgICBDQ0M6Ojo6Ojo6Ojo6OjpDRTo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6RQpGRkZGRkZGRkZGRkZGRkZGRkZGRkZGICAgICAgICAgICBDQ0NDQ0NDQ0NDQ0NDRUVFRUVFRUVFRUVFRUVFRUVFRUVF"
+$headerBase64 = "ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAg4paI4paI4paI4paEIOKWhOKWiOKWiOKWiOKWk+KWk+KWiOKWiOKWiOKWiOKWiCAg4paI4paI4paTICAgICDilojilojilpMgICAg4paE4paI4paI4paI4paI4paEICAg4paI4paI4paRIOKWiOKWiCDilpPilojilojilojilojiloggIOKWhOKWiOKWiOKWiOKWiOKWhCAgIOKWiOKWiCDiloTilojiloAKICAgICAgICAgICAgICAgICAgICDilpPilojilojilpLiloDilojiloAg4paI4paI4paS4paT4paIICAg4paAIOKWk+KWiOKWiOKWkiAgICDilpPilojilojilpIgICDilpLilojilojiloAg4paA4paIICDilpPilojilojilpEg4paI4paI4paS4paT4paIICAg4paAIOKWkuKWiOKWiOKWgCDiloDiloggICDilojilojiloTilojilpIKICAgICAgICAgICAgICAgICAgICDilpPilojiloggICAg4paT4paI4paI4paR4paS4paI4paI4paIICAg4paS4paI4paI4paRICAgIOKWkuKWiOKWiOKWkiAgIOKWkuKWk+KWiCAgICDiloQg4paS4paI4paI4paA4paA4paI4paI4paR4paS4paI4paI4paIICAg4paS4paT4paIICAgIOKWhCDilpPilojilojilojiloTilpEKICAgICAgICAgICAgICAgICAgICDilpLilojiloggICAg4paS4paI4paIIOKWkuKWk+KWiCAg4paEIOKWkuKWiOKWiOKWkSAgICDilpHilojilojilpEgICDilpLilpPilpPiloQg4paE4paI4paI4paS4paR4paT4paIIOKWkeKWiOKWiCDilpLilpPiloggIOKWhCDilpLilpPilpPiloQg4paE4paI4paI4paS4paT4paI4paIIOKWiOKWhAogICAgICAgICAgICAgICAgICAgIOKWkuKWiOKWiOKWkiAgIOKWkeKWiOKWiOKWkuKWkeKWkuKWiOKWiOKWiOKWiOKWkuKWkeKWiOKWiOKWiOKWiOKWiOKWiOKWkuKWkeKWiOKWiOKWkSAgIOKWkiDilpPilojilojilojiloAg4paR4paR4paT4paI4paS4paR4paI4paI4paT4paR4paS4paI4paI4paI4paI4paS4paSIOKWk+KWiOKWiOKWiOKWgCDilpHilpLilojilojilpIg4paI4paECiAgICAgICAgICAgICAgICAgICAg4paRIOKWkuKWkSAgIOKWkSAg4paR4paR4paRIOKWkuKWkSDilpHilpEg4paS4paR4paTICDilpHilpHilpMgICAgIOKWkSDilpHilpIg4paSICDilpEg4paSIOKWkeKWkeKWkuKWkeKWkuKWkeKWkSDilpLilpEg4paR4paRIOKWkeKWkiDilpIgIOKWkeKWkiDilpLilpIg4paT4paSCiAgICAgICAgICAgICAgICAgICAg4paRICDilpEgICAgICDilpEg4paRIOKWkSAg4paR4paRIOKWkSDilpIgIOKWkSDilpIg4paRICAgICDilpEgIOKWkiAgICDilpIg4paR4paS4paRIOKWkSDilpEg4paRICDilpEgIOKWkSAg4paSICAg4paRIOKWkeKWkiDilpLilpEKICAgICAgICAgICAgICAgICAgICDilpEgICAgICDilpEgICAgICDilpEgICAgIOKWkSDilpEgICAg4paSIOKWkSAgIOKWkSAgICAgICAgIOKWkSAg4paR4paRIOKWkSAgIOKWkSAgIOKWkSAgICAgICAg4paRIOKWkeKWkSDilpEgCiAgICAgICAgICAgICAgICAgICAgICAgICAg4paRICAgICAg4paRICDilpEgICAg4paRICDilpEg4paRICAgICDilpEg4paRICAgICAgIOKWkSAg4paRICDilpEgICDilpEgIOKWkeKWkSDilpEgICAgICDilpEgIOKWkSAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg4paRICAgICAgICAgICAgICAgICAgICAgICDilpEgICAgICAgICAgICAg"
 $headerString = [Text.Encoding]::UTF8.GetString([Convert]::FromBase64String($headerBase64))
 $headerLines = $headerString -split "`n"
 
 foreach ($line in $headerLines) {
-    Write-Host $line -ForegroundColor DarkBlue
+    Write-Host $line -ForegroundColor DarkRed
     Start-Sleep -Milliseconds 200
 }
 Start-Sleep -Seconds 2
@@ -13,12 +13,12 @@ Start-Sleep -Seconds 2
 Write-Host ""
 Write-Host ""
 
-$name = Read-Host -Prompt "Enter your name for Fella Check"
-$logFileName = "$name`_FellaCheckLog.txt"
+$name = Read-Host -Prompt "Type your name here"
+$logFileName = "$name`_Log.txt"
 
 Clear-Host
 
-Write-Host "Welcome, $name! Fella Check is running..." -ForegroundColor Green
+Write-Host "Hello, $name! The script is now starting..." -ForegroundColor Green
 
 function Get-OneDrivePath {
     $oneDrivePath = (Get-ItemProperty "HKCU:\Software\Microsoft\OneDrive" -Name "UserFolder" -ErrorAction SilentlyContinue).UserFolder
@@ -78,13 +78,10 @@ function Find-RarAndExeFiles {
     $oneDriveFiles = [System.Collections.Generic.List[string]]::new()
     $allFiles = [System.Collections.Generic.List[string]]::new()
     $rarSearchPaths = Get-PSDrive -PSProvider 'FileSystem' | ForEach-Object { $_.Root }
-    Write-Host "Search Paths: $rarSearchPaths" -ForegroundColor Yellow
     $oneDrivePath = Get-OneDrivePath
     if ($oneDrivePath) { $rarSearchPaths += $oneDrivePath }
-    Write-Host "Search Paths: $rarSearchPaths" -ForegroundColor Yellow
     $searchFiles = {
         param ($path, $filter, $oneDriveFiles, $allFiles)
-            Write-Host "Found file: $($_.FullName)" -ForegroundColor Cyan
         Get-ChildItem -Path $path -Recurse -Filter $filter -ErrorAction SilentlyContinue | ForEach-Object {
             $allFiles.Add($_.FullName)
             if ($_.FullName -like "*OneDrive*") { $oneDriveFiles.Add($_.FullName) }
@@ -139,7 +136,7 @@ function List-BAMStateUserSettings {
     $outputFile = Join-Path -Path $desktopPath -ChildPath $logFileName
     if (Test-Path $outputFile) { Clear-Content $outputFile }
     $loggedPaths = @{}
-    Write-Host " Fetching UserSettings Entries " -ForegroundColor Blue
+     Write-Host " Fetching UserSettings Entries " -ForegroundColor Blue
     $registryPath = "HKLM:\SYSTEM\CurrentControlSet\Services\bam\State\UserSettings"
     $userSettings = Get-ChildItem -Path $registryPath | Where-Object { $_.Name -like "*1001" }
 
@@ -157,9 +154,42 @@ function List-BAMStateUserSettings {
     } else {
         Write-Host "No relevant user settings found." -ForegroundColor Red
     }
+Write-Host "Fetching Compatibility Assistant Entries"
+    $compatRegistryPath = "HKCU:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Compatibility Assistant\Store"
+    $compatEntries = Get-ItemProperty -Path $compatRegistryPath
+    $compatEntries.PSObject.Properties | ForEach-Object {
+        if (($_.Name -match "exe" -or $_.Name -match ".rar") -and -not $loggedPaths.ContainsKey($_.Name)) {
+            Add-Content -Path $outputFile -Value (Format-Output $_.Name $_.Value)
+            $loggedPaths[$_.Name] = $true
+        }
+    }
+Write-Host "Fetching AppsSwitched Entries" -ForegroundColor Blue
+    $newRegistryPath = "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\FeatureUsage\AppSwitched"
+    if (Test-Path $newRegistryPath) {
+        $newEntries = Get-ItemProperty -Path $newRegistryPath
+        $newEntries.PSObject.Properties | ForEach-Object {
+            if (($_.Name -match "exe" -or $_.Name -match ".rar") -and -not $loggedPaths.ContainsKey($_.Name)) {
+                Add-Content -Path $outputFile -Value (Format-Output $_.Name $_.Value)
+                $loggedPaths[$_.Name] = $true
+            }
+        }
+    }
+Write-Host "Fetching MuiCache Entries" -ForegroundColor Blue
+    $muiCachePath = "HKCR:\Local Settings\Software\Microsoft\Windows\Shell\MuiCache"
+    if (Test-Path $muiCachePath) {
+        $muiCacheEntries = Get-ChildItem -Path $muiCachePath
+        $muiCacheEntries.PSObject.Properties | ForEach-Object {
+            if (($_.Name -match "exe" -or $_.Name -match ".rar") -and -not $loggedPaths.ContainsKey($_.Name)) {
+                Add-Content -Path $outputFile -Value (Format-Output $_.Name $_.Value)
+                $loggedPaths[$_.Name] = $true
+            }
+        }
+    }
+
+    Get-Content $outputFile | Sort-Object | Get-Unique | Where-Object { $_ -notmatch "\{.*\}" } | ForEach-Object { $_ -replace ":", "" } | Set-Content $outputFile
 
     Log-BrowserFolders
-
+  
     $folderNames = Log-FolderNames | Sort-Object | Get-Unique
     Add-Content -Path $outputFile -Value "`n-----------------"
     Add-Content -Path $outputFile -Value "`nR6 Usernames:"
@@ -257,11 +287,10 @@ function Log-WindowsSecurityStatus {
     Add-Content -Path $outputFile -Value $securityHeader
     $antivirusProducts = Get-WmiObject -Namespace "root\SecurityCenter2" -Class AntiVirusProduct -ErrorAction SilentlyContinue | Where-Object { $_.displayName -ne "Windows Defender" }
 
-if ($antivirusProducts) {
-    # Add appropriate handling logic here
+    if ($antivirusProducts) {
         Add-Content -Path $outputFile -Value "Third-Party Antivirus Software Detected:"
         foreach ($product in $antivirusProducts) {
-}
+            Add-Content -Path $outputFile -Value ("Name: {0}, State: {1}" -f $product.displayName, $product.productState)
         }
         Write-Host "Third-party antivirus software in $logFileName" -ForegroundColor Green
     } else {
@@ -310,6 +339,7 @@ if ($antivirusProducts) {
             }
         }
     }
+}
 
 function Log-ProtectionHistory {
     Write-Host "Checking Protection History for recent threats..." -ForegroundColor DarkYellow
@@ -418,6 +448,10 @@ if (Test-Path $logFilePath) {
     Write-Host "Log file not found on the desktop." -ForegroundColor Red
 }
 
+$desktopPath = [System.Environment]::GetFolderPath('Desktop')
+$userProfile = [System.Environment]::GetFolderPath([System.Environment+SpecialFolder]::UserProfile)
+$downloadsPath = Join-Path -Path $userProfile -ChildPath "Downloads"
+
 function Delete-FileIfExists {
     param (
         [string]$filePath
@@ -427,10 +461,8 @@ function Delete-FileIfExists {
     }
 }
 
-$desktopPath = [System.Environment]::GetFolderPath('Desktop')
-$targetFileDesktop = Join-Path -Path $desktopPath -ChildPath 'PcCheck.txt'
-$downloadsPath = Join-Path -Path ([System.Environment]::GetFolderPath([System.Environment+SpecialFolder]::UserProfile)) -ChildPath 'Downloads'
-$targetFileDownloads = Join-Path -Path $downloadsPath -ChildPath 'PcCheck.txt'
+$targetFileDesktop = Join-Path -Path $desktopPath -ChildPath "PcCheck.txt"
+$targetFileDownloads = Join-Path -Path $downloadsPath -ChildPath "PcCheck.txt"
 
 Delete-FileIfExists -filePath $targetFileDesktop
 Delete-FileIfExists -filePath $targetFileDownloads
