@@ -2,7 +2,7 @@ Clear-Host
 
 $headerBase64 = "CuKWhOKWiOKWiOKWiOKWiCAg4paE4paI4paI4paI4paEICAg4paIICAgIOKWiCAgICDilojilogg
 $windowWidth = $Host.UI.RawUI.WindowSize.Width
-[System.Text.Encoding]::UTF8.GetString([Convert]::FromBase64String($headerBase64)) | ForEach-Object { $line = $_; $padding = ' ' * (($windowWidth - $line.Length) / 2); Write-Host ($padding + $line) } 
+[System.Text.Encoding]::UTF8.GetString([Convert]::FromBase64String($headerBase64)) | ForEach-Object { $line = $_; $padding = ' ' * [Math]::Max((($windowWidth - $line.Length) / 2), 0); Write-Host ($padding + $line) }
 ICDiloTilojiloQgICAgIOKWhCAg4paIIOKWhOKWiOKWiOKWiOKWhCAgIOKWhOKWiOKWhCAgICDi
 loggIOKWiOKWgCAK4paI4paAICAg4paAIOKWiOKWgCAgIOKWgCAg4paIICAgIOKWiCAgICDilogg
 4paIICDilojiloAg4paA4paEICDiloggICDilogg4paI4paAICAg4paAICDilojiloAg4paA4paE
